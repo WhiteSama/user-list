@@ -1,0 +1,120 @@
+.modal {
+  &:after {
+    content: '';
+    width: 100vw;
+    height: 100vw;
+    position: fixed;
+    left: 0;
+    top: 0;
+    background: rgba($black, .3);
+    visibility: hidden;
+    opacity: 0;
+    transition: .3s;
+    z-index: 100;
+  }
+
+  &.open {
+    &:after {
+      visibility: visible;
+      opacity: 1;
+    }
+
+    .modalContainer {
+      visibility: visible;
+      opacity: 1;
+    }
+  }
+}
+
+.modalContainer {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: fit-content;
+  height: fit-content;
+  position: fixed;
+  left: 0;
+  right: 0;
+  top: 0;
+  bottom: 0;
+  margin: auto;
+  max-width: 600px;
+  max-height: 600px;
+  background: $white;
+  padding: 40px 25px 25px;
+  visibility: hidden;
+  opacity: 0;
+  transition: .3s;
+  z-index: 101;
+  border-radius: 15px;
+
+  .closeBtn {
+    background: $lightMainColor;
+    transition: .3s;
+    color: $white;
+    border-radius: 5px;
+    padding: 5px 5px 3px;
+    position: absolute;
+    right: 10px;
+    top: 10px;
+    width: 23px;
+    height: 23px;
+    cursor: pointer;
+
+    &:after, &:before {
+      content: '';
+      position: absolute;
+      left: 0;
+      right: 0;
+      top: 0;
+      bottom: 0;
+      margin: auto;
+      width: 13px;
+      height: 2px;
+      background: $white;
+      transform: rotate(45deg);
+    }
+
+    &:before {
+      transform: rotate(-45deg);
+    }
+
+
+    &:hover {
+      background: $darkMainColor;
+    }
+  }
+
+  .modalContent {
+    display: flex;
+
+    .userContent {
+      b {
+        font-weight: bold;
+      }
+
+      p {
+        margin-bottom: 5px;
+      }
+
+      .userName {
+        font-weight: bold;
+        font-size: $bigFS;
+        text-transform: capitalize;
+        margin-bottom: 10px;
+      }
+
+    }
+
+    .userImage {
+      max-width: 200px;
+      margin-right: 20px;
+
+      img {
+        max-width: 100%;
+        height: auto;
+      }
+    }
+  }
+}
+

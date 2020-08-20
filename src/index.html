@@ -1,0 +1,95 @@
+<!doctype html>
+<html lang="en">
+<head>
+    <title><%= htmlWebpackPlugin.options.title %></title>
+</head>
+<body>
+<h1><%= htmlWebpackPlugin.options.title %></h1>
+<div id="userList"></div>
+
+<script>
+    // Settings for static or dynamic data
+    const settings = {
+        limit: 55, //false for unlimited list
+        pageLimit: 10, //false for disable pagination
+        columns: [
+            {
+                title: 'ID',
+                position: 1,
+                sortable: true,
+                template: '${userId}'
+            },
+            {
+                title: 'Name',
+                position: 2,
+                sortable: true,
+                template: '<a href="#${userId}" data-modal="${userId}">${firstName} ${lastName}</a>'
+            },
+        ],
+        modalTemplate: '<div class="userImage"><img src="${picture}"/> </div>' +
+            '<div class="userContent">' +
+            '<div class="userName"><p>${title}. ${lastName} ${firstName}</p></div>' +
+            '<div class="userId"><p><b>ID:</b> ${userId}</p></div> ' +
+            '<div class="userGender"><p><b>Gender:</b> ${gender}</p></div>' +
+            '<div class="userEmail"><p><b>Email:</b> ${email}</p></div>' +
+            '<div class="userAddress"><p><b>Address:</b> ${address}</p></div>' +
+            '<div class="userCredentials"><p><b>Login/password:</b> ${login} ${password}</p></div> ' +
+            '</div>'
+    };
+
+    // Settings for CSV file
+    // const settings = {
+    //     limit: 50, //false for unlimited list
+    //     pageLimit: 10, //false for disable pagination
+    //     columns: [
+    //         {
+    //             title: 'ID',
+    //             position: 1,
+    //             sortable: true,
+    //             template: '${userId}'
+    //         },
+    //         {
+    //             title: 'Name',
+    //             position: 2,
+    //             sortable: true,
+    //             template: '${firstname} ${lastname}'
+    //         },
+    //     ]
+    // };
+
+    const data = {
+        // static: [
+        //     {
+        //         "userId": 0,
+        //         "firstName": "abigail",
+        //         "lastName": "foster"
+        //     },
+        //     {
+        //         "userId": 1,
+        //         "firstName": "allison",
+        //         "lastName": "graham"
+        //     }],
+        dynamic: {
+            getListRequest: {
+                url: 'https://hr.oat.taocloud.org/v1/users?limit=56',
+            },
+            getDetailsRequest: {
+                url: 'https://hr.oat.taocloud.org/v1/user/${userId}',
+                method: 'get',
+                // available all basic request params. Default method: get
+            }
+        },
+        //csv: 'testtakers.csv' //file or link (used fetch method)
+    };
+
+
+    document.addEventListener('DOMContentLoaded', function () {
+        const root = document.getElementById('userList');
+
+        const userList = new UserList(root, 'table', settings, data);
+
+        userList.init();
+    });
+</script>
+</body>
+</html>

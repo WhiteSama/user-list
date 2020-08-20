@@ -1,0 +1,29 @@
+.pagination {
+  display: flex;
+  align-items: center;
+  padding: 5px 0;
+  margin: 5px 0;
+  border-top: 1px solid $contrastColor;
+  font-size: $mainFS;
+
+  li {
+    padding: 5px;
+
+    a {
+      border-radius: 3px;
+      background: $contrastColor;
+      color: $white;
+      text-decoration: none;
+      padding: 2px 6px;
+
+      &:hover {
+        background: $lightContrastColor;
+      }
+    }
+
+    span {
+      font-weight: bold;
+      color: $mainColor;
+    }
+  }
+}

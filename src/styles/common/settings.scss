@@ -1,0 +1,14 @@
+$white: #fff;
+$black: #222;
+
+$mainColor: #4d3eee;
+$lightMainColor: lighten($mainColor, 5);
+$darkMainColor: darken($mainColor, 5);
+
+$contrastColor: #590cee;
+$lightContrastColor: lighten($contrastColor, 5);
+$darkContrastColor: darken($contrastColor, 5);
+
+$mainFS: 16px;
+$bigFS: 20px;
+$smallFS: 14px;

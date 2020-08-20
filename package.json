@@ -1,0 +1,47 @@
+{
+  "name": "user-list",
+  "title": "User list",
+  "version": "1.0.0",
+  "description": "Module for showing user list",
+  "private": true,
+  "dependencies": {},
+  "devDependencies": {
+    "@babel/core": "^7.8.3",
+    "@babel/plugin-proposal-class-properties": "^7.8.3",
+    "@babel/plugin-proposal-decorators": "^7.8.3",
+    "@babel/polyfill": "^7.8.3",
+    "@babel/preset-env": "^7.8.3",
+    "babel-loader": "^8.0.6",
+    "clean-webpack-plugin": "^3.0.0",
+    "css-loader": "^3.6.0",
+    "eslint": "^6.8.0",
+    "eslint-config-airbnb": "^18.0.1",
+    "eslint-import-resolver-webpack": "^0.11.1",
+    "eslint-plugin-import": "^2.20.0",
+    "file-loader": "^6.0.0",
+    "html-webpack-plugin": "^4.3.0",
+    "node-sass": "^4.13.1",
+    "sass-loader": "^8.0.2",
+    "style-loader": "^1.2.1",
+    "uglifyjs-webpack-plugin": "^2.2.0",
+    "webpack": "^4.43.0",
+    "webpack-cli": "^3.3.12",
+    "webpack-dev-server": "^3.11.0",
+    "webpack-merge": "^4.2.2"
+  },
+  "scripts": {
+    "start": "webpack-dev-server --watch --watch-poll --env.build=dev",
+    "build:develop": "webpack --env.build=dev",
+    "build:production": "webpack --env.build=prod"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/WhiteSama/user-list.git"
+  },
+  "author": "Oleg Belanovich",
+  "license": "UNLICENSED",
+  "bugs": {
+    "url": "https://github.com/WhiteSama/user-list/issues"
+  },
+  "homepage": "https://github.com/WhiteSama/user-list#readme"
+}
